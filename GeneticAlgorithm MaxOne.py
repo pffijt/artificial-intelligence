@@ -7,7 +7,7 @@ crossoverRate = 0.8
 mutationRate = 0.1
 populationSize = 6
 bitSize = 10
-improvementRequest = 2.0
+improvementRequest = 1.2
 
 
 # Create a new random candidate with the given size
@@ -70,11 +70,12 @@ def crossOver(selectedParents):
 
 
 # Mutate the bits with a low probability
-def mutate(bitList):
-    for i in range(len(bitList)):
-        if(random.random() <= mutationRate):
-            bitList[i] = bitSwitch(bitList[i])
-    return bitList
+def mutate(bitLists):
+    for y in range(2):
+        for i in range(len(bitLists[y])):
+            if(random.random() <= mutationRate):
+                bitLists[y][i] = bitSwitch(bitLists[y][i])
+    return bitLists
 
 
 # Switches the bit on/off
@@ -103,8 +104,7 @@ def main():
     while True:
         selectedParents = select(population)
         selectedChildren = crossOver(selectedParents)
-        selectedChildren[0] = mutate(selectedChildren[0])
-        selectedChildren[1] = mutate(selectedChildren[1])
+        selectedChildren = mutate(selectedChildren)
         population.append(selectedChildren[0])
         population.append(selectedChildren[1])
         if(result(population) > meanInit*improvementRequest):
