@@ -1,5 +1,7 @@
 # Artificial intelligence
 
-This repo is a personal directory that my classmates are able to use.
+This repo has personal scripts that I made while studying AI concepts.
 
-It is bound to the learning material of *Hogeschool Rotterdam*
+These AI concepts I needed to study for my Bachelors at *Hogeschool Rotterdam*.
+
+You are free to use them aswell for studies or any other type of projects ! recycle
